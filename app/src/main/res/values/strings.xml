@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Dita</string>
+    <string name="app_demo_name">Dita_Demo</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- MainActivity -->
+    <string name="main_text_loading">Cargando</string>
+
+    <!-- LoginActivity -->
+    <string name="login_title">Login</string>
+    <string name="login_hint_email">Email</string>
+    <string name="login_hint_password">Contraseña</string>
+    <string name="login_text_password_error">Contraseña incorrecta</string>
+    <string name="login_text_email_empty">Email vacío</string>
+    <string name="login_text_email_error">Email inválido</string>
+    <string name="login_text_account_banned">Cuenta baneada</string>
+    <string name="login_text_account_error">Error en la cuenta</string>
+    <string name="login_text_login">Login</string>
+    <string name="login_button_login">Login</string>
+    <string name="title_activity_menu">MenuActivity</string>
+
+    <!-- Assignee MenuActivity -->
+    <string name="menu_menu_logout">Logout</string>
+
+
+    <!-- CreatUserActivity -->
+    <string name="create_user_email">Email</string>
+    <string name="create_user_password">Contraseña</string>
+    <string name="create_user_confirm">Confirmar</string>
+
+</resources>
