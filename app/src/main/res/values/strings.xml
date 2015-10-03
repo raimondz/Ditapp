@@ -23,12 +23,18 @@
 
     <!-- CreateUserActivity -->
     <string name="create_user_email">Correo</string>
-    <string name="create_user_phone">Telefono</string>
+    <string name="create_user_phone">Telefono Celular</string>
     <string name="create_user_name">Nombre:</string>
     <string name="create_user_rut">Rut:</string>
 
     <string name="create_user_confirm">Confirmar</string>
     <string name="create_user_scan">Escanear Cedula</string>
     <string name="create_user_barcode_scan_prompt">Lee el reverso de tu carnet</string>
+
+    <string name="create_user_error_title">Error</string>
+    <string name="create_user_error_no_email">Email es obligatorio</string>
+    <string name="create_user_error_no_valid_email">Email no es valido</string>
+    <string name="create_user_error_no_phone">Telefono es obligatorio</string>
+    <string name="create_user_error_no_rut">Rut es obligatorio</string>
 
 </resources>
