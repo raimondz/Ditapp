@@ -60,6 +60,8 @@
         android:layout_below="@id/rl_rut"
         android:layout_centerHorizontal="true"
         android:onClick="onClickScan"
+
+        style="@style/btn_bch"
         />
 
     <Button
@@ -69,6 +71,8 @@
         android:id="@+id/btn_confirm"
         android:onClick="onCreateClick"
         android:layout_alignParentBottom="true"
+
+        style="@style/btn_bch"
         />
 
 

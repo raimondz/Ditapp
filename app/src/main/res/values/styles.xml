@@ -3,6 +3,19 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/bch_actionbar</item>
+        <item name="actionBarStyle">@style/bch_actionbar</item>
     </style>
 
+    <style name="bch_actionbar"
+        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/bch_green</item>
+        <item name="background">@color/bch_green</item>
+
+    </style>
+
+    <style name="btn_bch">
+        <item name="android:background">@drawable/bch_button_idle</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
 </resources>

@@ -8,11 +8,11 @@
 
     <!-- LoginActivity -->
     <string name="login_title">Login</string>
-    <string name="login_hint_email">Email</string>
+    <string name="login_hint_rut">Rut</string>
     <string name="login_hint_password">Contraseña</string>
     <string name="login_text_password_error">Contraseña incorrecta</string>
-    <string name="login_text_email_empty">Email vacío</string>
-    <string name="login_text_email_error">Email inválido</string>
+    <string name="login_text_rut_empty">Rut vacío</string>
+    <string name="login_rut_email_error">Rut inválido</string>
     <string name="login_text_account_banned">Cuenta baneada</string>
     <string name="login_text_account_error">Error en la cuenta</string>
     <string name="login_create_user">Crear cuenta</string>

@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:ems="10"
-        android:hint="@string/login_hint_email"
+        android:hint="@string/login_hint_rut"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -28,6 +28,7 @@
         android:inputType="textPassword" />
 
     <Button
+        style="@style/btn_bch"
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,5 +43,6 @@
         android:layout_height="wrap_content"
         android:text="@string/login_create_user"
         android:onClick="onClickCreateUser"
+        style="@style/btn_bch"
         />
 </LinearLayout>

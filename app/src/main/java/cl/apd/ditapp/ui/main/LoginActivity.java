@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private UserLoginTask authTask = null;
 
-    private EditText emailText;
+    private EditText rutText;
     private EditText passwordText;
 
 
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
 
-        emailText = (EditText) findViewById(R.id.emailText);
+        rutText = (EditText) findViewById(R.id.emailText);
         passwordText = (EditText) findViewById(R.id.passwordText);
         Button loginBtn = (Button) findViewById(R.id.loginBtn);
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -66,11 +66,11 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         // Reset errors.
-        emailText.setError(null);
+        rutText.setError(null);
         passwordText.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = emailText.getText().toString();
+        String email = rutText.getText().toString();
         String password = passwordText.getText().toString();
 
         boolean cancel = false;
@@ -85,12 +85,12 @@ public class LoginActivity extends AppCompatActivity {
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
-            emailText.setError(getResources().getString(R.string.login_text_email_empty));
-            focusView = emailText;
+            rutText.setError(getResources().getString(R.string.login_text_rut_empty));
+            focusView = rutText;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            emailText.setError(getResources().getString(R.string.login_text_email_error));
-            focusView = emailText;
+            rutText.setError(getResources().getString(R.string.login_rut_email_error));
+            focusView = rutText;
             cancel = true;
         }
 
@@ -190,13 +190,13 @@ public class LoginActivity extends AppCompatActivity {
             } else {
                 if(login != null) {
                     if(login.state == 3 || login.state == 4) {
-                        emailText.setError(
+                        rutText.setError(
                                 getResources().getString(R.string.login_text_account_banned));
-                        emailText.requestFocus();
+                        rutText.requestFocus();
                     }else{
-                        emailText.setError(
+                        rutText.setError(
                                 getResources().getString(R.string.login_text_account_error));
-                        emailText.requestFocus();
+                        rutText.requestFocus();
                     }
                 }else {
                     passwordText.setError(

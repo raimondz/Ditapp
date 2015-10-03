@@ -9,12 +9,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher2"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         tools:replace="android:icon" >
+
+        <!-- Activities go here -->
+
         <activity
             android:name=".ui.main.MainActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,38 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <receiver
-            android:name="com.google.android.gms.gcm.GcmReceiver"
-            android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
-                <category android:name="gcm.play.android.samples.com.gcmquickstart" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name=".network.gcm.SeguriappGcmListenerService"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            </intent-filter>
-        </service>
-        <service
-            android:name=".network.gcm.SeguriappInstanceIDListenerService"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="com.google.android.gms.iid.InstanceID" />
-            </intent-filter>
-        </service>
-        <service
-            android:name=".network.gcm.RegistrationIntentService"
-            android:exported="false" />
-
         <activity
             android:name=".ui.main.LoginActivity"
+            android:screenOrientation="portrait"
             android:label="@string/login_title" />
         <activity
             android:name=".ui.transaction.TransactionActivity"
@@ -73,6 +48,40 @@
             android:label="@string/app_name" />
         <activity android:name=".ui.solicitud.TramiteActivity" >
         </activity>
+
+
+        <!-- Receiver go here-->
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="gcm.play.android.samples.com.gcmquickstart" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Service go here -->
+        <service
+            android:name=".network.gcm.SeguriappGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".network.gcm.SeguriappInstanceIDListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".network.gcm.RegistrationIntentService"
+            android:exported="false" />
+
     </application>
 
 </manifest>
