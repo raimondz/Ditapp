@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Dita.iml" filepath="$PROJECT_DIR$/Dita.iml" />
+      <module fileurl="file://$PROJECT_DIR$/APD.iml" filepath="$PROJECT_DIR$/APD.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
