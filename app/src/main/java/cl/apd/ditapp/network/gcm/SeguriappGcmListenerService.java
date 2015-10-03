@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cl.fantasticsoft.dita.network.gcm;
+package cl.apd.ditapp.network.gcm;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -28,9 +28,9 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GcmListenerService;
 
-import cl.fantasticsoft.dita.R;
-import cl.fantasticsoft.dita.ui.main.MainActivity;
-import cl.fantasticsoft.dita.util.Constants;
+import cl.apd.ditapp.R;
+import cl.apd.ditapp.ui.main.MainActivity;
+import cl.apd.ditapp.util.Constants;
 
 public class SeguriappGcmListenerService extends GcmListenerService {
 

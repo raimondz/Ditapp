@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cl.fantasticsoft.dita.network.gcm;
+package cl.apd.ditapp.network.gcm;
 
 import android.app.IntentService;
 import android.content.Intent;
@@ -28,7 +28,7 @@ import com.google.android.gms.iid.InstanceID;
 
 import java.io.IOException;
 
-import cl.fantasticsoft.dita.util.Constants;
+import cl.apd.ditapp.util.Constants;
 
 public class RegistrationIntentService extends IntentService {
 

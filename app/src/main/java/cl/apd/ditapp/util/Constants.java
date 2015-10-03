@@ -1,4 +1,4 @@
-package cl.fantasticsoft.dita.util;
+package cl.apd.ditapp.util;
 
 public class Constants {
 

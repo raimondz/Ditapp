@@ -1,4 +1,4 @@
-package cl.fantasticsoft.dita.model;
+package cl.apd.ditapp.model;
 
 public class Login {
 

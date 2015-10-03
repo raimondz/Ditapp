@@ -1,4 +1,4 @@
-package cl.fantasticsoft.dita.ui.main;
+package cl.apd.ditapp.ui.main;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -14,9 +14,9 @@ import android.util.Log;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
-import cl.fantasticsoft.dita.R;
-import cl.fantasticsoft.dita.network.gcm.RegistrationIntentService;
-import cl.fantasticsoft.dita.util.Constants;
+import cl.apd.ditapp.R;
+import cl.apd.ditapp.network.gcm.RegistrationIntentService;
+import cl.apd.ditapp.util.Constants;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class MainActivity extends AppCompatActivity {

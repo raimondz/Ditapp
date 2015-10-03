@@ -1,4 +1,4 @@
-package cl.fantasticsoft.dita.ui.info_sucursal;
+package cl.apd.ditapp.ui.info_sucursal;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import cl.fantasticsoft.dita.R;
+import cl.apd.ditapp.R;
 
 /**
  * Created by Raimondz on 03-10-15.

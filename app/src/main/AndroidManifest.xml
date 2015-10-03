@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="cl.fantasticsoft.dita">
+    package="cl.apd.ditapp">
 
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -14,19 +14,8 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
         <activity
-            android:name="cl.fantasticsoft.dita.ui.main.MainActivity"
+            android:name="cl.apd.ditapp.ui.main.MainActivity"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
-        <activity
-            android:name=".ui.demo.DemoActivity"
-            android:label="@string/app_demo_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,34 +35,34 @@
         </receiver>
 
         <service
-            android:name="cl.fantasticsoft.dita.network.gcm.SeguriappGcmListenerService"
+            android:name="cl.apd.ditapp.network.gcm.SeguriappGcmListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
         <service
-            android:name="cl.fantasticsoft.dita.network.gcm.SeguriappInstanceIDListenerService"
+            android:name="cl.apd.ditapp.network.gcm.SeguriappInstanceIDListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
         <service
-            android:name="cl.fantasticsoft.dita.network.gcm.RegistrationIntentService"
+            android:name="cl.apd.ditapp.network.gcm.RegistrationIntentService"
             android:exported="false" />
 
         <activity
-            android:name="cl.fantasticsoft.dita.ui.main.LoginActivity"
+            android:name="cl.apd.ditapp.ui.main.LoginActivity"
             android:label="@string/login_title" />
         <activity
-            android:name=".ui.transaction.TransactionActivity"
+            android:name="cl.apd.ditapp.ui.transaction.TransactionActivity"
             android:label="@string/app_name"/>
         <activity
-            android:name=".ui.route_planning.RoutePlanningActivity"
+            android:name="cl.apd.ditapp.ui.route_planning.RoutePlanningActivity"
             android:label="@string/app_name"/>
         <activity
-            android:name=".ui.info_sucursal.InfoSucursalActivity"
+            android:name="cl.apd.ditapp.ui.info_sucursal.InfoSucursalActivity"
             android:label="@string/app_name"/>
 
 

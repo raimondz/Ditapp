@@ -1,4 +1,4 @@
-package cl.fantasticsoft.dita.util.genericAsyncTask;
+package cl.apd.ditapp.util.genericAsyncTask;
 
 /**
  * Created by Raimondz on 03-10-15.

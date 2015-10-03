@@ -6,7 +6,7 @@
     android:paddingLeft="50dp"
     android:paddingRight="50dp"
     android:paddingTop="50dp"
-    tools:context="cl.fantasticsoft.dita.ui.main.LoginActivity">
+    tools:context="cl.apd.ditapp.ui.main.LoginActivity">
 
 
     <EditText

@@ -1,4 +1,4 @@
-package cl.fantasticsoft.dita.util.genericAsyncTask;
+package cl.apd.ditapp.util.genericAsyncTask;
 
 import android.app.ProgressDialog;
 import android.content.Context;

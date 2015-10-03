@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cl.fantasticsoft.dita.network.gcm;
+package cl.apd.ditapp.network.gcm;
 
 
 import android.content.Intent;

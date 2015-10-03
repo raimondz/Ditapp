@@ -1,6 +1,6 @@
-package cl.fantasticsoft.dita.network;
+package cl.apd.ditapp.network;
 
-import cl.fantasticsoft.dita.model.Login;
+import cl.apd.ditapp.model.Login;
 import retrofit.Call;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;

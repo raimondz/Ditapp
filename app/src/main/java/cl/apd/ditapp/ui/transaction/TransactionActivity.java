@@ -1,4 +1,4 @@
-package cl.fantasticsoft.dita.ui.transaction;
+package cl.apd.ditapp.ui.transaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.squareup.okhttp.Route;
-
-import cl.fantasticsoft.dita.R;
-import cl.fantasticsoft.dita.ui.route_planning.RoutePlanningActivity;
+import cl.apd.ditapp.R;
+import cl.apd.ditapp.ui.route_planning.RoutePlanningActivity;
 
 /**
  * Created by Raimondz on 03-10-15.

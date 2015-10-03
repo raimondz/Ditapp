@@ -1,4 +1,4 @@
-package cl.fantasticsoft.dita;
+package cl.apd.ditapp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

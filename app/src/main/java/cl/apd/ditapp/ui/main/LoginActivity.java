@@ -1,6 +1,5 @@
-package cl.fantasticsoft.dita.ui.main;
+package cl.apd.ditapp.ui.main;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
@@ -14,10 +13,10 @@ import android.widget.EditText;
 
 import java.io.IOException;
 
-import cl.fantasticsoft.dita.R;
-import cl.fantasticsoft.dita.model.Login;
-import cl.fantasticsoft.dita.network.MainRest;
-import cl.fantasticsoft.dita.util.Constants;
+import cl.apd.ditapp.R;
+import cl.apd.ditapp.model.Login;
+import cl.apd.ditapp.network.MainRest;
+import cl.apd.ditapp.util.Constants;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit.Call;
 import retrofit.GsonConverterFactory;
