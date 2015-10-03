@@ -65,6 +65,10 @@
             android:name="cl.apd.ditapp.ui.info_sucursal.InfoSucursalActivity"
             android:label="@string/app_name"/>
 
+        <activity android:name=".ui.create_user.CreateUserActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"/>
+
 
     </application>
 

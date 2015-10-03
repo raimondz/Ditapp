@@ -1,5 +1,6 @@
 package cl.apd.ditapp.ui.main;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import cl.apd.ditapp.R;
 import cl.apd.ditapp.model.Login;
 import cl.apd.ditapp.network.MainRest;
+import cl.apd.ditapp.ui.create_user.CreateUserActivity;
 import cl.apd.ditapp.util.Constants;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit.Call;
@@ -209,5 +211,11 @@ public class LoginActivity extends AppCompatActivity {
             authTask = null;
             dialog.cancel();
         }
+    }
+
+    public void onClickCreateUser(View v){
+        Intent i=new Intent(this, CreateUserActivity.class);
+        startActivity(i);
+
     }
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/create_user_email"
+        android:layout_alignParentTop="true"
+        android:id="@+id/et_email" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:gravity="center"
+        android:id="@+id/et_phone"
+        android:hint="@string/create_user_phone"
+        android:layout_below="@+id/et_email" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_rut"
+        android:layout_below="@+id/et_phone"
+        >
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/divider"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/divider"
+            android:text="@string/create_user_rut"
+            android:id="@+id/editText2divider" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/divider"
+            android:text="..."
+            android:id="@+id/tv_rut" />
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_user_scan"
+        android:id="@+id/btn_scan_card"
+        android:layout_below="@id/rl_rut"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickScan"
+        />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_user_confirm"
+        android:id="@+id/btn_confirm"
+        android:onClick="onCreateClick"
+        android:layout_alignParentBottom="true"
+        />
+
+
+</RelativeLayout>
