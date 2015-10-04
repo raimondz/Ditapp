@@ -30,7 +30,7 @@
         android:inputType="phone"
         android:gravity="center"
 
-        android:text="118734548"
+        android:text="164361756"
         />
 
     <EditText
@@ -44,7 +44,7 @@
         android:inputType="textPassword"
         android:gravity="center"
 
-        android:text="j4JAZTck"
+        android:text="SyKi8g1T"
         />
 
     <Button

@@ -17,6 +17,14 @@
     <string name="login_text_account_banned">Cuenta baneada</string>
     <string name="login_error">Error en la cuenta</string>
     <string name="login_text_account_error">Error en la cuenta</string>
+
+
+    <string name="login_error_not_registered">Usuario no registrado.</string>
+    <string name="login_error_not_client">El cliente no esta registrado.</string>
+    <string name="login_error_no_discapacitado">Usuario no discapacitado</string>
+    <string name="login_error_invalid_pass">Contraseña incorrecta</string>
+    <string name="login_error_invalida_account">Usuario/Contraseña invalida</string>
+
     <string name="login_create_user">Crear cuenta</string>
     <string name="login_text_login">Login</string>
     <string name="login_button_login">Login</string>

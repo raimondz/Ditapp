@@ -169,5 +169,19 @@ public class CreateUserActivity extends AppCompatActivity implements GenericAsyn
 
             finish();
         }
+        else
+        {
+            SweetAlertDialog dialog=new SweetAlertDialog(this);
+            dialog.setTitleText("Error");
+            switch(login.status)
+            {
+                case 6:
+                    dialog.setContentText("El rut pertenece a un cliente del banco");
+                    dialog.show();
+                    break;
+                default:
+
+            }
+        }
     }
 }

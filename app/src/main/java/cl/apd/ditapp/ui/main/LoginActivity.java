@@ -183,10 +183,33 @@ public class LoginActivity extends AppCompatActivity {
                 openMenuActivity();
                 finish();
             } else {
-                new SweetAlertDialog(LoginActivity.this)
-                    .setTitleText(getString(R.string.login_error))
-                    .setContentText(getString(R.string.login_text_account_error))
-                        .show();
+                SweetAlertDialog dialog=new SweetAlertDialog(LoginActivity.this);
+                dialog.setTitleText(getString(R.string.login_error));
+                if(login!=null) {
+                    switch (login.status) {
+                        case 1:
+                            dialog.setContentText(getString(R.string.login_error_invalida_account));
+                            dialog.show();
+                            break;
+                        case 2:
+                            dialog.setContentText(getString(R.string.login_error_invalid_pass));
+                            dialog.show();
+                            break;
+                        case 3:
+                            dialog.setContentText(getString(R.string.login_error_not_client));
+                            dialog.show();
+                            break;
+                        case 4:
+                            dialog.setContentText(getString(R.string.login_error_no_discapacitado));
+                            dialog.show();
+                            break;
+                        default:
+                    }
+                }else {
+                    dialog.setContentText(getString(R.string.login_error_invalida_account));
+                    dialog.show();
+
+                }
             }
         }
 
