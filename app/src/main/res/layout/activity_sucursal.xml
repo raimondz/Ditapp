@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cl.apd.ditapp.ui.solicitud.TramiteActivity"
+    tools:context="cl.apd.ditapp.ui.solicitud.SucursalActivity"
     android:baselineAligned="false">
 
 
     <ListView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/tramitesList"
+        android:id="@+id/sucursalesList"
         android:layout_weight="1" />
 </LinearLayout>

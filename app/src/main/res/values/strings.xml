@@ -28,4 +28,12 @@
     <string name="create_user_password">Contraseña</string>
     <string name="create_user_confirm">Confirmar</string>
 
+    <!-- ConfirmarActivity -->
+    <string name="confirmar_text_tramite">Tramite</string>
+    <string name="confirmar_text_sucursal">Sucursal</string>
+    <string name="confirmar_text_hora">Hora</string>
+    <string name="confirmar_text_ahora">Ahora</string>
+    <string name="confirmar_button_hora">Hr</string>
+    <string name="confirmar_button_confirmar">Confirmar</string>
+
 </resources>

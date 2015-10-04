@@ -65,6 +65,23 @@
             android:name=".ui.info_sucursal.InfoSucursalActivity"
             android:label="@string/app_name" />
         <activity android:name=".ui.solicitud.TramiteActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.solicitud.SucursalActivity"
+            android:parentActivityName=".ui.solicitud.TramiteActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.solicitud.TramiteActivity" />
+        </activity>
+        <activity android:name=".ui.solicitud.ConfirmarActivity"
+            android:parentActivityName=".ui.solicitud.SucursalActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.solicitud.SucursalActivity" />
         </activity>
     </application>
 
