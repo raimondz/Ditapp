@@ -27,8 +27,20 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.List;
 
+import cl.apd.ditapp.model.Notificacion;
+import cl.apd.ditapp.model.Respuesta;
+import cl.apd.ditapp.model.Sucursal;
+import cl.apd.ditapp.model.SucursalRest;
+import cl.apd.ditapp.network.MainRest;
 import cl.apd.ditapp.util.Constants;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import retrofit.Call;
+import retrofit.GsonConverterFactory;
+import retrofit.Retrofit;
 
 public class RegistrationIntentService extends IntentService {
 
@@ -65,6 +77,7 @@ public class RegistrationIntentService extends IntentService {
             // otherwise your server should have already received the token.
             //sharedPreferences.edit().putBoolean(Constant.SENT_TOKEN_TO_SERVER, true).apply();
             sharedPreferences.edit().putString(Constants.GCM_TOKEN, token).apply();
+
             // [END register_for_gcm]
         } catch (Exception e) {
             Log.d(TAG, "Failed to complete token refresh", e);

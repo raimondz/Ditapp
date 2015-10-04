@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -76,11 +78,21 @@ public class ConfirmarActivity extends AppCompatActivity {
         confirmarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String hora = horaText.getText().toString();
+                if(hora.compareTo("Ahora") == 0) {
+                    hora = new SimpleDateFormat("H:mm").format(new Date());
+                }
+
+                String rut = ((MainApp) getApplication()).getRut();
+                String tramite = datos.getString(Constants.SOLICITUD_TRAMITE);
+                int sucursal = datos.getInt(Constants.SOLICITUD_SUCURSAL);
+
                 solicitudTask = new SolicitudTask(
-                        ((MainApp) getApplication()).getRut(),
-                        datos.getString(datos.getString(Constants.SOLICITUD_TRAMITE)),
-                        datos.getInt(Constants.SOLICITUD_SUCURSAL),
-                        horaText.getText().toString()
+                        rut,
+                        tramite,
+                        sucursal,
+                        hora
 
                 );
                 solicitudTask.execute();
@@ -161,6 +173,7 @@ public class ConfirmarActivity extends AppCompatActivity {
                         notificacion.setFecha(new Date());
                     }
                 });
+                Toast.makeText(ConfirmarActivity.this, "Tramite solicitado exitosamente", Toast.LENGTH_LONG).show();
                 backToMenu();
             } else {
                 new SweetAlertDialog(ConfirmarActivity.this)
@@ -180,7 +193,7 @@ public class ConfirmarActivity extends AppCompatActivity {
 
     public void backToMenu() {
         Intent i = new Intent(CloseBroadcastReceiver.INTENT_ACTION);
-        i.putExtra(CloseBroadcastReceiver.BUNDLE_KEY_CLOSE_CODE,0);
+        i.putExtra(CloseBroadcastReceiver.BUNDLE_KEY_CLOSE_CODE, 0);
         sendBroadcast(i);
         finish();
     }

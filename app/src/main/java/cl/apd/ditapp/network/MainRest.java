@@ -1,10 +1,14 @@
 package cl.apd.ditapp.network;
 
+import java.util.List;
+
 import cl.apd.ditapp.model.Login;
 import cl.apd.ditapp.model.Respuesta;
+import cl.apd.ditapp.model.SucursalRest;
 import retrofit.Call;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
+import retrofit.http.GET;
 import retrofit.http.POST;
 
 public interface MainRest {
@@ -31,4 +35,7 @@ public interface MainRest {
             @Field("correo") String mail,
             @Field("telefono") String phone
     );
+
+    @GET("/sucursal")
+    Call<List<SucursalRest>> sucursales();
 }

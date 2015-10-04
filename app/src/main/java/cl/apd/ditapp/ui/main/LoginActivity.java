@@ -13,15 +13,20 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.io.IOException;
+import java.util.List;
 
 import cl.apd.ditapp.MainApp;
 import cl.apd.ditapp.R;
 import cl.apd.ditapp.model.Respuesta;
+import cl.apd.ditapp.model.Sucursal;
+import cl.apd.ditapp.model.SucursalRest;
 import cl.apd.ditapp.network.MainRest;
 import cl.apd.ditapp.ui.create_user.CreateUserActivity;
 import cl.apd.ditapp.ui.menu.MenuActivity;
 import cl.apd.ditapp.util.Constants;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import retrofit.Call;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;

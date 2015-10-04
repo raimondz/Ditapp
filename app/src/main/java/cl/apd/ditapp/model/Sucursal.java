@@ -4,6 +4,7 @@ import io.realm.RealmObject;
 public class Sucursal extends RealmObject {
 
     private int id;
+    private String nombre;
     private String direccion;
     private double latitud;
     private double longitud;
@@ -14,6 +15,14 @@ public class Sucursal extends RealmObject {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDireccion() {

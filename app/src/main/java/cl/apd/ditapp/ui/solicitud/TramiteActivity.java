@@ -27,6 +27,7 @@ public class TramiteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tramite);
 
+        /*
         RealmConfiguration realmConfig = new RealmConfiguration.Builder(this).build();
         Realm realm = Realm.getInstance(realmConfig);
 
@@ -37,11 +38,13 @@ public class TramiteActivity extends AppCompatActivity {
         sucursal.setLatitud(-22.12321);
         sucursal.setLatitud(33.657493);
         realm.commitTransaction();
+        */
 
         ArrayList<String> tramites = new ArrayList<String>();
         tramites.add("Transferencia");
         tramites.add("Solicitar Credito");
         tramites.add("Credito Hipotecario");
+        tramites.add("Cheque");
 
         ListView list = (ListView)findViewById(R.id.tramitesList);
 
