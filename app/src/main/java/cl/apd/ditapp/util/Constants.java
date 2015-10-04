@@ -3,10 +3,10 @@ package cl.apd.ditapp.util;
 public class Constants {
 
     // Site
-    public static final String URL = "https://fantasticsoft.cl";
+    public static final String URL = "http://dita.mobani.cl";
 
     // log
-    public static final String TAG = "Seguriapp";
+    public static final String TAG = "APD";
 
     // Google gcm
     public static final String SENDER_ID = "886274646504";

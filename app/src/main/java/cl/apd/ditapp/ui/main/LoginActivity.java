@@ -16,6 +16,7 @@ import android.widget.EditText;
 
 import java.io.IOException;
 
+import cl.apd.ditapp.MainApp;
 import cl.apd.ditapp.R;
 import cl.apd.ditapp.model.Login;
 import cl.apd.ditapp.network.MainRest;
@@ -105,11 +106,8 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-
-            //TODO disable this direct access.
-            openMenuActivity();
-            //authTask = new UserLoginTask(email, password, gcmToken);
-            //authTask.execute((Void) null);
+            authTask = new UserLoginTask(rut, password, gcmToken);
+            authTask.execute((Void) null);
         }
 
     }
@@ -124,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String email;
+        private final String rut;
         private final String password;
         private final String gcm;
 
@@ -134,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
         private MainRest service;
 
         UserLoginTask(String email, String password, String gcm) {
-            this.email = email;
+            this.rut = email;
             this.password = password;
             this.gcm = gcm;
         }
@@ -158,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(Void... params) {
 
-            Call<Login> call = service.doLogin(email, password, gcm);
+            Call<Login> call = service.doLogin(rut, password, gcm);
 
             try {
                 login = call.execute().body();
@@ -167,9 +165,8 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             if(login != null) {
-                if(login.state != 3 && login.state != 4 && !login.token.isEmpty()) {
-                    sharedPreferences.edit().putString(Constants.USER_TOKEN, login.token).apply();
-                    sharedPreferences.edit().putBoolean(Constants.IS_DRIVER, login.id_driver != 0).apply();
+                if(login.status ==0) {
+                    ((MainApp)getApplication()).setRut(rut);
                 }else{
                     return false;
                 }
@@ -186,29 +183,11 @@ public class LoginActivity extends AppCompatActivity {
             dialog.cancel();
 
             if (success) {
-                if(login.id_driver != 0) {
-                    /*startActivity(new Intent(LoginActivity.this,
-                            cl.fantasticsoft.dita.ui.driver.main.MenuActivity.class));*/
-                }else{
-                    /*startActivity(new Intent(LoginActivity.this,
-                            cl.fantasticsoft.dita.ui.assignee.main.MenuActivity.class));*/
-                }
+                openMenuActivity();
                 finish();
             } else {
                 if(login != null) {
-                    if(login.state == 3 || login.state == 4) {
-                        rutText.setError(
-                                getResources().getString(R.string.login_text_account_banned));
-                        rutText.requestFocus();
-                    }else{
-                        rutText.setError(
-                                getResources().getString(R.string.login_text_account_error));
-                        rutText.requestFocus();
-                    }
-                }else {
-                    passwordText.setError(
-                            getResources().getString(R.string.login_text_password_error));
-                    passwordText.requestFocus();
+
                 }
             }
         }

@@ -37,9 +37,6 @@
         <activity
             android:name=".ui.route_planning.RoutePlanningActivity"
             android:label="@string/actionbar_name" />
-        <activity
-            android:name="cl.apd.ditapp.ui.info_sucursal.InfoSucursalActivity"
-            android:label="@string/actionbar_name"/>
 
         <activity android:name=".ui.create_user.CreateUserActivity"
             android:screenOrientation="portrait"
@@ -56,6 +53,19 @@
             android:label="@string/actionbar_name"/>
 
 
+        <!-- Activities Admin -->
+
+        <activity
+            android:name=".ui.admin_notification.AdminNotificationActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/actionbar_admin_notification"
+            />
+
+        <activity
+            android:name=".ui.admin_notification.AdminNotificationContentActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/actionbar_admin_notification"
+            />
 
         <!-- Receiver go here-->
 

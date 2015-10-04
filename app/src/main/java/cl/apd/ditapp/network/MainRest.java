@@ -10,15 +10,12 @@ import retrofit.http.POST;
 public interface MainRest {
 
     @FormUrlEncoded
-    @POST("/mobile/user/dologin")
+    @POST("/cliente/login")
     Call<Login> doLogin(
-            @Field("mail") String email,
-            @Field("password") String password,
+            @Field("rut") String rut,
+            @Field("pass") String password,
             @Field("gcm") String gcm);
 
-    @FormUrlEncoded
-    @POST("/mobile/user/dologout")
-    Call<Login> doLogout(@Field("token") String token);
 
     @FormUrlEncoded
     @POST("/solicitud")

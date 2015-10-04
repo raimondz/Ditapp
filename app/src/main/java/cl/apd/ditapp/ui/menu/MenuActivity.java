@@ -26,11 +26,11 @@ public class MenuActivity extends AppCompatActivity{
 
     public void onClickTramite(View v)
     {
-
+        //TODO add code
     }
 
     public void onClickNotification(View v)
     {
-
+        //TODO add code
     }
 }
