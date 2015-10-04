@@ -8,8 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,13 +16,11 @@ import java.io.IOException;
 
 import cl.apd.ditapp.MainApp;
 import cl.apd.ditapp.R;
-import cl.apd.ditapp.model.Login;
 import cl.apd.ditapp.model.Respuesta;
 import cl.apd.ditapp.network.MainRest;
 import cl.apd.ditapp.ui.create_user.CreateUserActivity;
 import cl.apd.ditapp.ui.menu.MenuActivity;
 import cl.apd.ditapp.util.Constants;
-import cl.apd.ditapp.util.ValidationUtil;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit.Call;
 import retrofit.GsonConverterFactory;
@@ -53,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         if(gcmToken.isEmpty()) {
             finish();
         }
-        rutText = (EditText) findViewById(R.id.emailText);
+        rutText = (EditText) findViewById(R.id.rutText);
         passwordText = (EditText) findViewById(R.id.passwordText);
         Button loginBtn = (Button) findViewById(R.id.loginBtn);
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +157,7 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 login = call.execute().body();
             } catch (IOException e) {
+                e.printStackTrace();
                 Log.e(Constants.TAG, "error: ", e);
             }
 
@@ -187,9 +184,9 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             } else {
                 new SweetAlertDialog(LoginActivity.this)
-                    .setTitleText("Error")
-                    .setContentText("Usuario no autorizado")
-                    .show();
+                    .setTitleText(getString(R.string.login_error))
+                    .setContentText(getString(R.string.login_text_account_error))
+                        .show();
             }
         }
 

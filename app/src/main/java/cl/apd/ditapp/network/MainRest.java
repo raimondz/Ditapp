@@ -17,7 +17,7 @@ public interface MainRest {
             @Field("gcm") String gcm);
 
     @FormUrlEncoded
-    @POST("/solicitud")
+    @POST("/cliente/solicitud")
     Call<Respuesta> solicitud(
             @Field("rut") String rut,
             @Field("tramite") String password,

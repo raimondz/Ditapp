@@ -8,4 +8,5 @@
     <color name="lime">#A5DC86</color>
 
     <color name="bch_green">#0B685E</color>
+    <color name="bch_dark_green">#044444</color>
 </resources>

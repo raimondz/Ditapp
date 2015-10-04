@@ -3,20 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="50dp"
-    android:paddingRight="50dp"
-    android:paddingTop="50dp"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp"
+    android:paddingTop="40dp"
     tools:context="cl.apd.ditapp.ui.main.LoginActivity">
 
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_launcher2"
+        />
+
     <EditText
-        android:id="@+id/emailText"
+        android:id="@+id/rutText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_logo"
         android:layout_marginBottom="30dp"
         android:ems="10"
         android:hint="@string/login_hint_rut"
-        android:inputType="phone" />
+        android:inputType="phone"
+        android:gravity="center"
+
+        android:text="118734548"
+        />
 
     <EditText
         android:id="@+id/passwordText"
@@ -25,8 +40,12 @@
         android:layout_marginBottom="40dp"
         android:ems="10"
         android:hint="@string/login_hint_password"
-        android:layout_below="@id/emailText"
-        android:inputType="textPassword" />
+        android:layout_below="@id/rutText"
+        android:inputType="textPassword"
+        android:gravity="center"
+
+        android:text="j4JAZTck"
+        />
 
     <Button
         style="@style/btn_bch"

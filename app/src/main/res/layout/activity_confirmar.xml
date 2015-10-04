@@ -70,6 +70,7 @@
             android:text="@string/confirmar_text_ahora" />
 
         <Button
+            style="@style/btn_bch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/confirmar_button_hora"
@@ -80,6 +81,7 @@
     </LinearLayout>
 
     <Button
+        style="@style/btn_bch"
         android:id="@+id/confirmarButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

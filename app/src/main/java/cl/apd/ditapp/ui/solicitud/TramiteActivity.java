@@ -1,6 +1,7 @@
 package cl.apd.ditapp.ui.solicitud;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,11 +13,14 @@ import java.util.ArrayList;
 
 import cl.apd.ditapp.R;
 import cl.apd.ditapp.model.Sucursal;
+import cl.apd.ditapp.util.CloseBroadcastReceiver;
 import cl.apd.ditapp.util.Constants;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 public class TramiteActivity extends AppCompatActivity {
+
+    CloseBroadcastReceiver receiver=new CloseBroadcastReceiver(this,0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,8 @@ public class TramiteActivity extends AppCompatActivity {
 
         ArrayList<String> tramites = new ArrayList<String>();
         tramites.add("Transferencia");
-        tramites.add("Shampuken");
+        tramites.add("Solicitar Credito");
+        tramites.add("Credito Hipotecario");
 
         ListView list = (ListView)findViewById(R.id.tramitesList);
 
@@ -50,13 +55,20 @@ public class TramiteActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(TramiteActivity.this, SucursalActivity.class);
                 Bundle datos = new Bundle();
-                datos.putString(Constants.SOLICITUD_TRAMITE, ((String)parent.getItemAtPosition(position)));
+                datos.putString(Constants.SOLICITUD_TRAMITE, ((String) parent.getItemAtPosition(position)));
                 intent.putExtras(datos);
 
                 startActivity(intent);
             }
         });
 
+        registerReceiver(receiver, new IntentFilter(CloseBroadcastReceiver.INTENT_ACTION));
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(receiver);
+        super.onDestroy();
     }
 }

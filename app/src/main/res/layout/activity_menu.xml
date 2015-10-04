@@ -39,7 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/menu_tramite" />
+            android:text="@string/menu_tramite"
+            android:gravity="center_horizontal" />
     </LinearLayout>
     <View
         android:layout_width="1dp"
@@ -81,7 +82,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/menu_notification" />
+            android:text="@string/menu_notification"
+            android:gravity="center_horizontal" />
     </LinearLayout>
 
     <Button

@@ -15,6 +15,7 @@
     <string name="login_text_rut_empty">Rut vacío</string>
     <string name="login_rut_email_error">Rut inválido</string>
     <string name="login_text_account_banned">Cuenta baneada</string>
+    <string name="login_error">Error en la cuenta</string>
     <string name="login_text_account_error">Error en la cuenta</string>
     <string name="login_create_user">Crear cuenta</string>
     <string name="login_text_login">Login</string>
@@ -42,14 +43,14 @@
     <!-- ConfirmarActivity -->
     <string name="confirmar_text_tramite">Tramite</string>
     <string name="confirmar_text_sucursal">Sucursal</string>
-    <string name="confirmar_text_hora">Hora</string>
+    <string name="confirmar_text_hora">Hora de salida</string>
     <string name="confirmar_text_ahora">Ahora</string>
     <string name="confirmar_button_hora">Hr</string>
     <string name="confirmar_button_confirmar">Confirmar</string>
 
     <!-- MenuActivity -->
     <string name="menu_logout">Logout</string>
-    <string name="menu_tramite">Tramite</string>
+    <string name="menu_tramite">Solicitar Tramite</string>
     <string name="menu_notification">Notificaciones</string>
     <string name="menu_cancelar_tramite">Cancelar tramite</string>
     <string name="menu_icon_tramite">{fa-bank}</string>
