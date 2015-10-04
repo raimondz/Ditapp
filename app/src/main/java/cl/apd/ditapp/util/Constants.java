@@ -15,6 +15,7 @@ public class Constants {
 
     // SharedPreference
     public static final String GCM_TOKEN = "gcmToken";
+    public static final String SUCURSALES_CHECK = "sucursalesCheck";
     public static final String USER_TOKEN = "userToken";
     public static final String IS_DRIVER = "isDriver";
     public static final String SOLICITUD_TRAMITE = "solicitudTramite";

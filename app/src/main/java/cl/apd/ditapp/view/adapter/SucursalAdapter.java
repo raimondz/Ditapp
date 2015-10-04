@@ -14,7 +14,8 @@ import io.realm.RealmResults;
 public class SucursalAdapter extends RealmBaseAdapter<Sucursal> implements ListAdapter {
 
     private class NotificationHolder {
-        TextView title;
+        TextView nombre;
+        TextView direccion;
     }
 
     public SucursalAdapter(Context context,
@@ -32,14 +33,16 @@ public class SucursalAdapter extends RealmBaseAdapter<Sucursal> implements ListA
             convertView = inflater.inflate(R.layout.item_sucursal,
                     parent, false);
             viewHolder = new NotificationHolder();
-            viewHolder.title = (TextView) convertView.findViewById(R.id.direccionText);
+            viewHolder.nombre = (TextView) convertView.findViewById(R.id.nombreText);
+            viewHolder.direccion = (TextView) convertView.findViewById(R.id.direccionText);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (NotificationHolder) convertView.getTag();
         }
 
         Sucursal item = realmResults.get(position);
-        viewHolder.title.setText(item.getDireccion());
+        viewHolder.nombre.setText(item.getNombre());
+        viewHolder.direccion.setText(item.getDireccion());
         //viewHolder.content.setText(item.getContent());
         //viewHolder.date.setText("{fa-clock-o} " + new SimpleDateFormat("dd-MM-yyyy HH:mm").format(item.getDate()));
         return convertView;
