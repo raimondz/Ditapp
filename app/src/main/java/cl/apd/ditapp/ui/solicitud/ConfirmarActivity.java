@@ -70,7 +70,8 @@ public class ConfirmarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 solicitudTask = new SolicitudTask(
-                        datos.getString(datos.getString(Constants.SOLICITUD_TRAMITE)),
+                        // TODO poner el rut real
+                        "117678482",
                         datos.getString(datos.getString(Constants.SOLICITUD_TRAMITE)),
                         datos.getInt(Constants.SOLICITUD_SUCURSAL),
                         horaText.getText().toString()

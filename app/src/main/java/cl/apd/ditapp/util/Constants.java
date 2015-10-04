@@ -20,4 +20,7 @@ public class Constants {
     public static final String SOLICITUD_TRAMITE = "solicitudTramite";
     public static final String SOLICITUD_SUCURSAL = "solicitudSucursal";
     public static final String SOLICITUD_SUCURSAL_DIRECCION = "solicitudSucursalDireccion";
+    public static final String NOTIFICACION_TITULO = "titulo";
+    public static final String NOTIFICACION_DESCRIPCION = "descripcion";
+    public static final String NOTIFICACION_FECHA = "fecha";
 }
