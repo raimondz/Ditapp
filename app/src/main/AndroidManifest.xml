@@ -82,6 +82,24 @@
             android:name=".network.gcm.RegistrationIntentService"
             android:exported="false" />
 
+        <activity
+            android:name=".ui.solicitud.SucursalActivity"
+            android:parentActivityName=".ui.solicitud.TramiteActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.solicitud.TramiteActivity" />
+        </activity>
+        <activity
+            android:name=".ui.solicitud.ConfirmarActivity"
+            android:parentActivityName=".ui.solicitud.SucursalActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.solicitud.SucursalActivity" />
+        </activity>
+        <activity android:name=".ui.notificacion.NotificacionActivity" >
+        </activity>
+        <activity android:name=".ui.notificacion.ViewActivity" >
+        </activity>
     </application>
 
 </manifest>

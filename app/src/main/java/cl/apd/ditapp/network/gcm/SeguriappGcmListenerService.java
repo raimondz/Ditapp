@@ -28,9 +28,14 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GcmListenerService;
 
+import java.util.Date;
+
 import cl.apd.ditapp.R;
+import cl.apd.ditapp.model.Notificacion;
 import cl.apd.ditapp.ui.main.MainActivity;
 import cl.apd.ditapp.util.Constants;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 public class SeguriappGcmListenerService extends GcmListenerService {
 
@@ -44,9 +49,9 @@ public class SeguriappGcmListenerService extends GcmListenerService {
     // [START receive_message]
     @Override
     public void onMessageReceived(String from, Bundle data) {
-        String message = data.getString("message");
+        //String message = data.getString("message");
         Log.d(Constants.TAG, "From: " + from);
-        Log.d(Constants.TAG, "Message: " + message);
+        //Log.d(Constants.TAG, "Message: " + message);
 
         if (from.startsWith("/topics/")) {
             // message received from some topic.
@@ -66,7 +71,7 @@ public class SeguriappGcmListenerService extends GcmListenerService {
          * In some cases it may be useful to show a notification indicating to the user
          * that a message was received.
          */
-        sendNotification(message);
+        sendNotification(data);
         // [END_EXCLUDE]
     }
     // [END receive_message]
@@ -74,9 +79,31 @@ public class SeguriappGcmListenerService extends GcmListenerService {
     /**
      * Create and show a simple notification containing the received GCM message.
      *
-     * @param message GCM message received.
+     * @param data GCM message received.
      */
-    private void sendNotification(String message) {
+    private void sendNotification(final Bundle data) {
+
+        RealmConfiguration realmConfig = new RealmConfiguration.Builder(this).build();
+        Realm realm = Realm.getInstance(realmConfig);
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                Notificacion notificacion = realm.createObject(Notificacion.class);
+                notificacion.setTitulo(data.getString(Constants.NOTIFICACION_TITULO));
+                notificacion.setDescripcion(data.getString(Constants.NOTIFICACION_DESCRIPCION));
+                notificacion.setFecha(new Date());
+                /*
+                notification.setType(data.getInt(Constant.MESSAGE_TYPE));
+                notification.setPriority(data.getInt(Constant.MESSAGE_PRIORITY));
+                notification.setTitle(data.getString(Constant.MESSAGE_TITLE));
+                notification.setContent(data.getString(Constant.MESSAGE_CONTENT));
+                notification.setVoice(data.getString(Constant.MESSAGE_VOICE));
+                notification.setDate(new Date());
+                notification.setRead(false);
+                */
+            }
+        });
+
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -85,8 +112,8 @@ public class SeguriappGcmListenerService extends GcmListenerService {
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("GCM Message")
-                .setContentText(message)
+                .setContentTitle(data.getString(Constants.NOTIFICACION_TITULO))
+                .setContentText("un mensaje")
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
