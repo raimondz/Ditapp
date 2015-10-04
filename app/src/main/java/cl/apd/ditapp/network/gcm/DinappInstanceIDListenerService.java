@@ -21,7 +21,7 @@ import android.content.Intent;
 
 import com.google.android.gms.iid.InstanceIDListenerService;
 
-public class SeguriappInstanceIDListenerService extends InstanceIDListenerService {
+public class DinappInstanceIDListenerService extends InstanceIDListenerService {
 
     /**
      * Called if InstanceID token is updated. This may occur if the security of

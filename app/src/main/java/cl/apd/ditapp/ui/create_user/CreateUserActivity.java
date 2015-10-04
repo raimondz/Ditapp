@@ -3,6 +3,7 @@ package cl.apd.ditapp.ui.create_user;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -12,14 +13,26 @@ import android.widget.TextView;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.io.IOException;
+
+import cl.apd.ditapp.MainApp;
 import cl.apd.ditapp.R;
+import cl.apd.ditapp.model.Respuesta;
+import cl.apd.ditapp.network.MainRest;
+import cl.apd.ditapp.ui.menu.MenuActivity;
+import cl.apd.ditapp.util.Constants;
 import cl.apd.ditapp.util.ValidationUtil;
+import cl.apd.ditapp.util.genericAsyncTask.GenericAsyncTask;
+import cl.apd.ditapp.util.genericAsyncTask.GenericAsyncTaskDelegate;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import retrofit.Call;
+import retrofit.GsonConverterFactory;
+import retrofit.Retrofit;
 
 /**
  * Created by Raimondz on 03-10-15.
  */
-public class CreateUserActivity extends AppCompatActivity{
+public class CreateUserActivity extends AppCompatActivity implements GenericAsyncTaskDelegate{
 
     final static private String TAG=CreateUserActivity.class.getCanonicalName();
 
@@ -27,6 +40,8 @@ public class CreateUserActivity extends AppCompatActivity{
 
     private EditText et_email;
     private EditText et_phone;
+
+    private String email,phone,rut;
 
     private TextView et_rut;
 
@@ -53,9 +68,9 @@ public class CreateUserActivity extends AppCompatActivity{
     {
         SweetAlertDialog dialog=new SweetAlertDialog(this);
         dialog.setTitleText(getString(R.string.create_user_error_title));
-        String email=et_email.getText().toString();
-        String phone=et_phone.getText().toString();
-        String rut=et_rut.getText().toString();
+        email=et_email.getText().toString();
+        phone=et_phone.getText().toString();
+        rut=et_rut.getText().toString();
 
         if(email.isEmpty())
         {
@@ -85,7 +100,9 @@ public class CreateUserActivity extends AppCompatActivity{
             return;
         }
 
-        //TODO realizar registro
+        GenericAsyncTask logintask=new GenericAsyncTask(this);
+        logintask.setDelegate(this);
+        logintask.execute();
     }
 
     @Override
@@ -117,6 +134,49 @@ public class CreateUserActivity extends AppCompatActivity{
                 break;
             default:
 
+        }
+    }
+
+    private MainRest service;
+    private Respuesta login;
+
+    @Override
+    public void onPreExecute() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        service = retrofit.create(MainRest.class);
+    }
+
+    @Override
+    public void onBackground() {
+
+        Call<Respuesta> call = service.doLogin(rut, email, phone);
+
+        try {
+            login = call.execute().body();
+        } catch (IOException e) {
+            Log.e(Constants.TAG, "error: ", e);
+        }
+
+        if(login != null) {
+            if(login.status ==0) {
+                ((MainApp)getApplication()).setRut(rut);
+            }
+        }
+
+    }
+
+    @Override
+    public void onComplete(Boolean is_canceled) {
+        if(login.status==0)
+        {
+            Intent i=new Intent(this, MenuActivity.class);
+            startActivity(i);
+
+            finish();
         }
     }
 }

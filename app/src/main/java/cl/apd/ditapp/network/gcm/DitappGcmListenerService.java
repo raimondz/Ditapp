@@ -37,7 +37,7 @@ import cl.apd.ditapp.util.Constants;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
-public class SeguriappGcmListenerService extends GcmListenerService {
+public class DitappGcmListenerService extends GcmListenerService {
 
     /**
      * Called when message is received.
@@ -92,15 +92,6 @@ public class SeguriappGcmListenerService extends GcmListenerService {
                 notificacion.setTitulo(data.getString(Constants.NOTIFICACION_TITULO));
                 notificacion.setDescripcion(data.getString(Constants.NOTIFICACION_DESCRIPCION));
                 notificacion.setFecha(new Date());
-                /*
-                notification.setType(data.getInt(Constant.MESSAGE_TYPE));
-                notification.setPriority(data.getInt(Constant.MESSAGE_PRIORITY));
-                notification.setTitle(data.getString(Constant.MESSAGE_TITLE));
-                notification.setContent(data.getString(Constant.MESSAGE_CONTENT));
-                notification.setVoice(data.getString(Constant.MESSAGE_VOICE));
-                notification.setDate(new Date());
-                notification.setRead(false);
-                */
             }
         });
 

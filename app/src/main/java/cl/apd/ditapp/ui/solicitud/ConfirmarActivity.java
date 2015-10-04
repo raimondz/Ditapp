@@ -1,6 +1,7 @@
 package cl.apd.ditapp.ui.solicitud;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,13 +13,19 @@ import android.widget.TimePicker;
 
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.Date;
 
+import cl.apd.ditapp.MainApp;
 import cl.apd.ditapp.R;
 import cl.apd.ditapp.model.Login;
+import cl.apd.ditapp.model.Notificacion;
 import cl.apd.ditapp.model.Respuesta;
 import cl.apd.ditapp.network.MainRest;
+import cl.apd.ditapp.util.CloseBroadcastReceiver;
 import cl.apd.ditapp.util.Constants;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import retrofit.Call;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
@@ -34,12 +41,12 @@ public class ConfirmarActivity extends AppCompatActivity {
 
         final Bundle datos = getIntent().getExtras();
 
-        TextView tramiteText = (TextView)findViewById(R.id.tramiteText);
-        TextView sucursalText = (TextView)findViewById(R.id.sucursalText);
-        final TextView horaText = (TextView)findViewById(R.id.horaText);
+        TextView tramiteText = (TextView) findViewById(R.id.tramiteText);
+        TextView sucursalText = (TextView) findViewById(R.id.sucursalText);
+        final TextView horaText = (TextView) findViewById(R.id.horaText);
 
-        Button horaButton = (Button)findViewById(R.id.horaButton);
-        Button confirmarButton = (Button)findViewById(R.id.confirmarButton);
+        Button horaButton = (Button) findViewById(R.id.horaButton);
+        Button confirmarButton = (Button) findViewById(R.id.confirmarButton);
 
         tramiteText.setText(datos.getString(Constants.SOLICITUD_TRAMITE));
         sucursalText.setText(datos.getString(Constants.SOLICITUD_SUCURSAL_DIRECCION));
@@ -70,12 +77,13 @@ public class ConfirmarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 solicitudTask = new SolicitudTask(
-                        // TODO poner el rut real
-                        "117678482",
+                        ((MainApp) getApplication()).getRut(),
                         datos.getString(datos.getString(Constants.SOLICITUD_TRAMITE)),
                         datos.getInt(Constants.SOLICITUD_SUCURSAL),
                         horaText.getText().toString()
+
                 );
+                solicitudTask.execute();
             }
         });
 
@@ -128,9 +136,9 @@ public class ConfirmarActivity extends AppCompatActivity {
                 Log.e(Constants.TAG, "error: ", e);
             }
 
-            if(respuesta != null) {
+            if (respuesta != null) {
                 return respuesta.status == 0;
-            }else {
+            } else {
                 return false;
             }
         }
@@ -141,11 +149,26 @@ public class ConfirmarActivity extends AppCompatActivity {
             dialog.cancel();
 
             if (success) {
-                //TODO crear notificacion
+                RealmConfiguration realmConfig =
+                        new RealmConfiguration.Builder(ConfirmarActivity.this).build();
+                Realm realm = Realm.getInstance(realmConfig);
+                realm.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        Notificacion notificacion = realm.createObject(Notificacion.class);
+                        notificacion.setTitulo("Solicitud");
+                        notificacion.setDescripcion("Enviada exitosamente");
+                        notificacion.setFecha(new Date());
+                    }
+                });
+                backToMenu();
             } else {
-
+                new SweetAlertDialog(ConfirmarActivity.this)
+                        .setTitleText("Error")
+                        .setContentText("No se pudo enviar")
+                        .show();
             }
-            finish();
+
         }
 
         @Override
@@ -153,5 +176,12 @@ public class ConfirmarActivity extends AppCompatActivity {
             solicitudTask = null;
             dialog.cancel();
         }
+    }
+
+    public void backToMenu() {
+        Intent i = new Intent(CloseBroadcastReceiver.INTENT_ACTION);
+        i.putExtra(CloseBroadcastReceiver.BUNDLE_KEY_CLOSE_CODE,0);
+        sendBroadcast(i);
+        finish();
     }
 }

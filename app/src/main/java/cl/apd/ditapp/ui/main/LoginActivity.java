@@ -19,6 +19,7 @@ import java.io.IOException;
 import cl.apd.ditapp.MainApp;
 import cl.apd.ditapp.R;
 import cl.apd.ditapp.model.Login;
+import cl.apd.ditapp.model.Respuesta;
 import cl.apd.ditapp.network.MainRest;
 import cl.apd.ditapp.ui.create_user.CreateUserActivity;
 import cl.apd.ditapp.ui.menu.MenuActivity;
@@ -49,10 +50,9 @@ public class LoginActivity extends AppCompatActivity {
         gcmToken = sharedPreferences.getString(Constants.GCM_TOKEN, "");
         String userToken = sharedPreferences.getString(Constants.USER_TOKEN, "");
 
-        if(gcmToken.isEmpty() || !userToken.isEmpty()) {
+        if(gcmToken.isEmpty()) {
             finish();
         }
-
         rutText = (EditText) findViewById(R.id.emailText);
         passwordText = (EditText) findViewById(R.id.passwordText);
         Button loginBtn = (Button) findViewById(R.id.loginBtn);
@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
 
         private SweetAlertDialog dialog;
 
-        private Login login;
+        private Respuesta login;
         private MainRest service;
 
         UserLoginTask(String email, String password, String gcm) {
@@ -156,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(Void... params) {
 
-            Call<Login> call = service.doLogin(rut, password, gcm);
+            Call<Respuesta> call = service.doLogin(rut, password, gcm);
 
             try {
                 login = call.execute().body();
@@ -186,9 +186,10 @@ public class LoginActivity extends AppCompatActivity {
                 openMenuActivity();
                 finish();
             } else {
-                if(login != null) {
-
-                }
+                new SweetAlertDialog(LoginActivity.this)
+                    .setTitleText("Error")
+                    .setContentText("Usuario no autorizado")
+                    .show();
             }
         }
 

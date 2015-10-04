@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         String gcmToken = sharedPreferences.getString(Constants.GCM_TOKEN, "");
-        String userToken = sharedPreferences.getString(Constants.USER_TOKEN, "");
-        Boolean isDriver = sharedPreferences.getBoolean(Constants.IS_DRIVER, true);
 
         if (gcmToken.isEmpty()) {
             if (checkPlayServices()) {
@@ -47,17 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 startService(intent);
             }
         } else {
-            if (userToken.isEmpty()) {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            } else {
-                if (isDriver) {
-                    /*startActivity(new Intent(MainActivity.this,
-                            cl.fantasticsoft.dita.ui.driver.main.MenuActivity.class));*/
-                } else {
-                    /*startActivity(new Intent(MainActivity.this,
-                            cl.fantasticsoft.dita.ui.assignee.main.MenuActivity.class));*/
-                }
-            }
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
         }
 

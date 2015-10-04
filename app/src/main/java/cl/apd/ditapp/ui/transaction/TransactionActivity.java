@@ -1,6 +1,7 @@
 package cl.apd.ditapp.ui.transaction;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,11 +11,14 @@ import android.widget.ListView;
 
 import cl.apd.ditapp.R;
 import cl.apd.ditapp.ui.route_planning.RoutePlanningActivity;
+import cl.apd.ditapp.util.CloseBroadcastReceiver;
 
 /**
  * Created by Raimondz on 03-10-15.
  */
 public class TransactionActivity extends AppCompatActivity {
+
+    CloseBroadcastReceiver receiver=new CloseBroadcastReceiver(this,0);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,14 @@ public class TransactionActivity extends AppCompatActivity {
 
             }
         });
+
+        registerReceiver(receiver,new IntentFilter(CloseBroadcastReceiver.INTENT_ACTION));
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(receiver);
+        super.onDestroy();
     }
 
     public void onStepTwo(View v)

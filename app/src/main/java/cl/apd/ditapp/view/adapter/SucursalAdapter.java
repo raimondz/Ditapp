@@ -24,6 +24,7 @@ public class SucursalAdapter extends RealmBaseAdapter<Sucursal> implements ListA
     }
 
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         NotificationHolder viewHolder;

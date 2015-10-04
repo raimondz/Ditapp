@@ -30,27 +30,59 @@
         <activity
             android:name=".ui.main.LoginActivity"
             android:screenOrientation="portrait"
-            android:label="@string/actionbar_name" />
-        <activity
-            android:name=".ui.transaction.TransactionActivity"
-            android:label="@string/actionbar_name" />
-        <activity
-            android:name=".ui.route_planning.RoutePlanningActivity"
-            android:label="@string/actionbar_name" />
+            android:label="@string/actionbar_name"></activity>
 
         <activity android:name=".ui.create_user.CreateUserActivity"
             android:screenOrientation="portrait"
-            android:label="@string/actionbar_name"/>
-
-            android:name=".ui.info_sucursal.InfoSucursalActivity"
-            android:label="@string/app_name" />
-        <activity android:name=".ui.solicitud.TramiteActivity" >
+            android:label="@string/actionbar_name"
+            android:parentActivityName=".ui.main.LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.main.LoginActivity" />
         </activity>
+
+        <activity android:name=".ui.solicitud.TramiteActivity"
+            android:parentActivityName=".ui.menu.MenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.menu.MenuActivity" />
+        </activity>
+
+        <activity
+            android:name=".ui.solicitud.SucursalActivity"
+            android:parentActivityName=".ui.solicitud.TramiteActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.solicitud.TramiteActivity" />
+        </activity>
+        <activity
+            android:name=".ui.solicitud.ConfirmarActivity"
+            android:parentActivityName=".ui.solicitud.SucursalActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.solicitud.SucursalActivity" />
+        </activity>
+
+        <activity android:name=".ui.notificacion.NotificacionActivity"
+            android:parentActivityName=".ui.menu.MenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.menu.MenuActivity" />
+        </activity>
+
+        <activity android:name=".ui.notificacion.ViewActivity"
+            android:parentActivityName=".ui.notificacion.NotificacionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.notificacion.NotificacionActivity" />
+        </activity>
+
 
         <activity
             android:name=".ui.menu.MenuActivity"
             android:screenOrientation="portrait"
-            android:label="@string/actionbar_name"/>
+            android:label="@string/actionbar_name">
+        </activity>
 
 
         <!-- Activities Admin -->
@@ -65,7 +97,11 @@
             android:name=".ui.admin_notification.AdminNotificationContentActivity"
             android:screenOrientation="portrait"
             android:label="@string/actionbar_admin_notification"
-            />
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.admin_notification.AdminNotificationActivity" />
+        </activity>
 
         <!-- Receiver go here-->
 
@@ -82,14 +118,14 @@
 
         <!-- Service go here -->
         <service
-            android:name=".network.gcm.SeguriappGcmListenerService"
+            android:name=".network.gcm.DitappGcmListenerService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
         <service
-            android:name=".network.gcm.SeguriappInstanceIDListenerService"
+            android:name=".network.gcm.DinappInstanceIDListenerService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID" />
@@ -99,24 +135,6 @@
             android:name=".network.gcm.RegistrationIntentService"
             android:exported="false" />
 
-        <activity
-            android:name=".ui.solicitud.SucursalActivity"
-            android:parentActivityName=".ui.solicitud.TramiteActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.solicitud.TramiteActivity" />
-        </activity>
-        <activity
-            android:name=".ui.solicitud.ConfirmarActivity"
-            android:parentActivityName=".ui.solicitud.SucursalActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.solicitud.SucursalActivity" />
-        </activity>
-        <activity android:name=".ui.notificacion.NotificacionActivity" >
-        </activity>
-        <activity android:name=".ui.notificacion.ViewActivity" >
-        </activity>
     </application>
 
 </manifest>

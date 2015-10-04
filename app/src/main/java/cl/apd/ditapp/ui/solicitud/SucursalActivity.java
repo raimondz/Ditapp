@@ -1,6 +1,7 @@
 package cl.apd.ditapp.ui.solicitud;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ListView;
 
 import cl.apd.ditapp.R;
 import cl.apd.ditapp.model.Sucursal;
+import cl.apd.ditapp.util.CloseBroadcastReceiver;
 import cl.apd.ditapp.util.Constants;
 import cl.apd.ditapp.view.adapter.SucursalAdapter;
 import io.realm.Realm;
@@ -16,6 +18,8 @@ import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 
 public class SucursalActivity extends AppCompatActivity {
+
+    CloseBroadcastReceiver receiver=new CloseBroadcastReceiver(this,0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +52,13 @@ public class SucursalActivity extends AppCompatActivity {
             }
         });
 
+        registerReceiver(receiver, new IntentFilter(CloseBroadcastReceiver.INTENT_ACTION));
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(receiver);
+        super.onDestroy();
     }
 }

@@ -3,7 +3,7 @@ package cl.apd.ditapp.util;
 public class Constants {
 
     // Site
-    public static final String URL = "http://dita.mobani.cl";
+    public static final String URL = "http://192.168.27.45";
 
     // log
     public static final String TAG = "APD";
