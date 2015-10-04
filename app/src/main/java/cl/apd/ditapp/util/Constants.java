@@ -9,7 +9,7 @@ public class Constants {
     public static final String TAG = "APD";
 
     // Google gcm
-    public static final String SENDER_ID = "886274646504";
+    public static final String SENDER_ID = "993329847213";
     public static final String REGISTRATION_COMPLETE = "registrationComplete";
     public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
