@@ -6,14 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.TextClock;
 import android.widget.TextView;
 
-import java.util.zip.Inflater;
-
 import cl.apd.ditapp.R;
-import cl.apd.ditapp.model.Sucursal;
 
 /**
  * Created by Raimondz on 04-10-15.

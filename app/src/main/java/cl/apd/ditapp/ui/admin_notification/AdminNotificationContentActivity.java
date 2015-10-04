@@ -1,5 +1,6 @@
 package cl.apd.ditapp.ui.admin_notification;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Pair;
@@ -51,5 +52,12 @@ public class AdminNotificationContentActivity extends AppCompatActivity {
     {
         lv_entrada.setVisibility(View.GONE);
         lv_salida.setVisibility(View.VISIBLE);
+    }
+
+
+    public void onClickResponse(View v)
+    {
+        Intent i=new Intent(this,AdminNotificationResponse.class);
+        startActivity(i);
     }
 }

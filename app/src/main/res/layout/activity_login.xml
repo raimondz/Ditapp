@@ -27,7 +27,6 @@
         android:layout_marginBottom="30dp"
         android:ems="10"
         android:hint="@string/login_hint_rut"
-        android:inputType="phone"
         android:gravity="center"
 
         android:text="164361756"
@@ -57,17 +56,46 @@
         android:onClick="onClickStep1"
         />
 
-
-    <Button
-        android:id="@+id/createBtn"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/loginBtn"
         android:layout_marginTop="10dp"
-        android:text="@string/login_create_user"
-        android:onClick="onClickCreateUser"
-        style="@style/btn_bch"
-        />
+
+        android:id="@+id/ll_sin_cuenta"
+        android:onClick="onClickCreateUser">
+        <TextView
+            android:id="@+id/createBtn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+
+            android:textColor="@color/bch_blue"
+            android:gravity="center"
+            android:text="@string/login_create_user"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_sin_cuenta"
+        android:layout_marginTop="10dp"
+
+        android:onClick="onClickHelp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+
+            android:textColor="@color/bch_blue"
+            android:gravity="center"
+            android:text="Ayuda en linea"
+            />
+    </LinearLayout>
+
+
+
 
     <TextView
         android:layout_width="fill_parent"

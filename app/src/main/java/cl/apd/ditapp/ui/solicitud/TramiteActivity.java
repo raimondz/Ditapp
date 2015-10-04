@@ -39,9 +39,15 @@ public class TramiteActivity extends AppCompatActivity {
         realm.commitTransaction();
 
         ArrayList<String> tramites = new ArrayList<String>();
-        tramites.add("Transferencia");
-        tramites.add("Solicitar Credito");
-        tramites.add("Credito Hipotecario");
+        tramites.add("Abrir cuenta");
+        tramites.add("Deposito");
+        tramites.add("Canje vale vista");
+        tramites.add("Adquirir producto de banco");
+        tramites.add("Contratar seguro de banco");
+        tramites.add("Cambio de clave");
+        tramites.add("Sincronizacion Digipass");
+        tramites.add("Extravio de documento");
+
 
         ListView list = (ListView)findViewById(R.id.tramitesList);
 

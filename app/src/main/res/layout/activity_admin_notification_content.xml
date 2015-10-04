@@ -6,19 +6,29 @@
     android:layout_margin="10dp"
     android:background="@color/bch_blue">
 
-    <RelativeLayout
-        android:layout_margin="10dp"
+    <Button
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:text="Responder"
+        android:onClick="onClickResponse"
+        />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:id="@+id/tv_name_rut"
+        android:textAppearance="?android:attr/textAppearanceMedium"
 
+
+        android:gravity="center"
+        android:text="Nombre Rut"
         android:textColor="@android:color/white"
         />
+    <RelativeLayout
+        android:layout_margin="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
     <View
         android:layout_width="1dp"
         android:layout_height="wrap_content"
@@ -51,7 +61,7 @@
 
         android:textColor="@android:color/white"
         android:gravity="center"
-        android:text="Risk"
+        android:text="Medio"
         android:id="@+id/et_risk"
         />
 
@@ -110,11 +120,13 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/et_condition_label"
 
-            android:gravity="center_vertical"
+            android:gravity="center_vertical|right"
             android:textColor="@android:color/white"
             android:text="Placeholder"
             android:id="@+id/et_condition"
-            android:layout_above="@+id/et_suggestion_label" />
+            android:layout_above="@+id/et_suggestion_label"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:layout_marginTop="10dp"
@@ -137,11 +149,13 @@
             android:layout_toRightOf="@id/et_suggestion_label"
             android:layout_alignTop="@id/et_suggestion_label"
 
-            android:gravity="center_vertical"
+            android:gravity="center_vertical|right"
             android:textColor="@android:color/white"
             android:text="Placeholder"
             android:id="@+id/et_suggestion"
-            android:layout_above="@+id/et_tramite_label" />
+            android:layout_above="@+id/et_tramite_label"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:layout_marginTop="10dp"
@@ -165,11 +179,12 @@
             android:layout_alignTop="@id/et_tramite_label"
             android:layout_alignBottom="@id/et_tramite_label"
 
-            android:gravity="center_vertical"
+            android:gravity="center_vertical|right"
             android:textColor="@android:color/white"
             android:text="Placeholder"
             android:id="@+id/et_tramite"
-            />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
 
     </RelativeLayout>

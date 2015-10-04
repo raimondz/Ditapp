@@ -25,7 +25,7 @@
     <string name="login_error_invalid_pass">Contraseña incorrecta</string>
     <string name="login_error_invalida_account">Usuario/Contraseña invalida</string>
 
-    <string name="login_create_user">Crear cuenta</string>
+    <string name="login_create_user">No soy cliente</string>
     <string name="login_text_login">Login</string>
     <string name="login_button_login">Login</string>
     <string name="title_activity_menu">MenuActivity</string>

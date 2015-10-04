@@ -2,6 +2,7 @@ package cl.apd.ditapp.ui.main;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,8 @@ import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 
 public class LoginActivity extends AppCompatActivity {
+
+    final static private String LINK_HELP="http://ww3.bancochile.cl/wps/wcm/connect/nuestro-banco/portal/chile-abierto/ayuda-24-horas";
 
     private UserLoginTask authTask = null;
 
@@ -228,6 +231,12 @@ public class LoginActivity extends AppCompatActivity {
     public void openMenuActivity(){
         Intent i=new Intent(this, MenuActivity.class);
         startActivity(i);
+    }
+
+    public void onClickHelp(View v)
+    {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK_HELP));
+        startActivity(browserIntent);
     }
 
 }
