@@ -1,7 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:background="@color/bch_blue">
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_margin="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/tv_name_rut"
+
+        android:textColor="@android:color/white"
+        />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/et_risk"
+        android:background="@android:color/darker_gray"
+
+        android:id="@+id/divider"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/divider"
+        android:layout_alignParentLeft="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+
+        android:textColor="@android:color/white"
+        android:id="@+id/et_risk_label"
+        android:gravity="center"
+        android:text="Cliente en riesgo:"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/divider"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/et_risk_label"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:text="Risk"
+        android:id="@+id/et_risk"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/divider"
+        android:layout_alignParentRight="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+
+
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:text="Hora de llegada:"
+        android:id="@+id/et_time_label"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/divider"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/et_risk_label"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:text="Hour"
+        android:id="@+id/et_time"
+        />
+    </RelativeLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        />
+    <RelativeLayout
+        android:layout_margin="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+
+            android:textColor="@android:color/white"
+            android:text="Condicion:"
+            android:id="@+id/et_condition_label"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/et_condition_label"
+
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:text="Placeholder"
+            android:id="@+id/et_condition"
+            android:layout_above="@+id/et_suggestion_label" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/et_condition_label"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+
+            android:textColor="@android:color/white"
+            android:text="Sugerencia:"
+            android:id="@+id/et_suggestion_label"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/et_suggestion_label"
+            android:layout_alignTop="@id/et_suggestion_label"
+
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:text="Placeholder"
+            android:id="@+id/et_suggestion"
+            android:layout_above="@+id/et_tramite_label" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/et_suggestion_label"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+
+            android:textColor="@android:color/white"
+            android:text="Sugerencia:"
+            android:id="@+id/et_tramite_label"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/et_tramite_label"
+            android:layout_alignTop="@id/et_tramite_label"
+            android:layout_alignBottom="@id/et_tramite_label"
+
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:text="Placeholder"
+            android:id="@+id/et_tramite"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/darker_gray"
+        >
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_options"
+            >
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="Llegada"
+                android:textColor="@color/bch_blue"
+
+                android:background="@drawable/bch_tab_button"
+                android:onClick="onClickEntrada"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="Salida"
+                android:textColor="@color/bch_blue"
+
+                android:background="@drawable/bch_tab_button"
+                android:onClick="onClickSalida"
+                />
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/ll_options"
+            android:id="@+id/lv_entrada"
+
+            android:background="@android:color/white"
+            />
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/ll_options"
+            android:id="@+id/lv_salida"
+
+            android:background="@android:color/white"
+            android:visibility="gone"
+            />
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

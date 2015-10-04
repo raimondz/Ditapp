@@ -9,4 +9,7 @@
 
     <color name="bch_green">#0B685E</color>
     <color name="bch_dark_green">#044444</color>
+
+    <color name="bch_blue">#001646</color>
+    <color name="bch_dark_blue">#001646</color>
 </resources>
