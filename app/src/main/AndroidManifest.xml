@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".MainApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher2"
         android:label="@string/app_name"
@@ -19,7 +20,7 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/actionbar_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,25 +30,31 @@
         <activity
             android:name=".ui.main.LoginActivity"
             android:screenOrientation="portrait"
-            android:label="@string/login_title" />
+            android:label="@string/actionbar_name" />
         <activity
             android:name=".ui.transaction.TransactionActivity"
-            android:label="@string/app_name" />
+            android:label="@string/actionbar_name" />
         <activity
             android:name=".ui.route_planning.RoutePlanningActivity"
-            android:label="@string/app_name" />
+            android:label="@string/actionbar_name" />
         <activity
             android:name="cl.apd.ditapp.ui.info_sucursal.InfoSucursalActivity"
-            android:label="@string/app_name"/>
+            android:label="@string/actionbar_name"/>
 
         <activity android:name=".ui.create_user.CreateUserActivity"
             android:screenOrientation="portrait"
-            android:label="@string/app_name"/>
+            android:label="@string/actionbar_name"/>
 
             android:name=".ui.info_sucursal.InfoSucursalActivity"
             android:label="@string/app_name" />
         <activity android:name=".ui.solicitud.TramiteActivity" >
         </activity>
+
+        <activity
+            android:name=".ui.menu.MenuActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/actionbar_name"/>
+
 
 
         <!-- Receiver go here-->

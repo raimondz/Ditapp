@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    tools:context="cl.apd.ditapp.ui.main.LoginActivity">
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_alignRight="@id/divider"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@+id/btn_logout"
+        android:layout_toLeftOf="@+id/divisor"
+        android:layout_toStartOf="@+id/divisor"
+        android:gravity="center"
+
+        android:id="@+id/ll_tramite"
+        android:onClick="onClickTramite"
+        >
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_icon_tramite"
+            android:shadowColor="#22000000"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="1"
+            android:textSize="40sp"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/menu_tramite" />
+    </LinearLayout>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/darker_gray"
+        android:layout_above="@+id/btn_logout"
+
+        android:id="@+id/divisor"
+        />
+
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/btn_logout"
+        android:layout_toRightOf="@+id/divisor"
+        android:layout_toEndOf="@+id/divisor"
+        android:gravity="center"
+
+        android:id="@+id/ll_notification"
+        android:onClick="onClickNotification"
+        >
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_icon_notification"
+            android:shadowColor="#22000000"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="1"
+            android:textSize="40sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/menu_notification" />
+    </LinearLayout>
+
+    <Button
+        style="@style/btn_bch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_disclaimer"
+        android:text="@string/menu_logout"
+        android:id="@+id/btn_logout"
+
+        android:onClick="onClickLogout"
+
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/tv_disclaimer"
+        android:text="@string/label_disclaimer"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+</RelativeLayout>

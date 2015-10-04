@@ -3,6 +3,8 @@ package cl.apd.ditapp.ui.create_user;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,6 +34,7 @@ public class CreateUserActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
+
         et_email = (EditText) findViewById(R.id.et_email);
         et_phone = (EditText) findViewById(R.id.et_phone);
         et_rut = (TextView) findViewById(R.id.tv_rut);

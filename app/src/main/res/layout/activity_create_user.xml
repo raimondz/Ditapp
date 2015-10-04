@@ -38,17 +38,19 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/divider"/>
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/divider"
             android:text="@string/create_user_rut"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/editText2divider" />
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/divider"
             android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/tv_rut" />
     </RelativeLayout>
 
@@ -74,6 +76,7 @@
 
         style="@style/btn_bch"
         />
+
 
 
 </RelativeLayout>

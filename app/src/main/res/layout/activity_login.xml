@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,7 +16,7 @@
         android:layout_marginBottom="30dp"
         android:ems="10"
         android:hint="@string/login_hint_rut"
-        android:inputType="textEmailAddress" />
+        android:inputType="phone" />
 
     <EditText
         android:id="@+id/passwordText"
@@ -25,6 +25,7 @@
         android:layout_marginBottom="40dp"
         android:ems="10"
         android:hint="@string/login_hint_password"
+        android:layout_below="@id/emailText"
         android:inputType="textPassword" />
 
     <Button
@@ -32,6 +33,7 @@
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/passwordText"
         android:text="@string/login_button_login"
         android:onClick="onClickStep1"
         />
@@ -41,8 +43,20 @@
         android:id="@+id/createBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/loginBtn"
+        android:layout_marginTop="10dp"
         android:text="@string/login_create_user"
         android:onClick="onClickCreateUser"
         style="@style/btn_bch"
         />
-</LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:text="@string/label_disclaimer"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+</RelativeLayout>

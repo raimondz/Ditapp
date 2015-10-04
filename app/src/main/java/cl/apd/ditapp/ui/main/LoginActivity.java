@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +20,9 @@ import cl.apd.ditapp.R;
 import cl.apd.ditapp.model.Login;
 import cl.apd.ditapp.network.MainRest;
 import cl.apd.ditapp.ui.create_user.CreateUserActivity;
+import cl.apd.ditapp.ui.menu.MenuActivity;
 import cl.apd.ditapp.util.Constants;
+import cl.apd.ditapp.util.ValidationUtil;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit.Call;
 import retrofit.GsonConverterFactory;
@@ -70,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordText.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = rutText.getText().toString();
+        String rut = rutText.getText().toString();
         String password = passwordText.getText().toString();
 
         boolean cancel = false;
@@ -84,15 +88,15 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(rut)) {
             rutText.setError(getResources().getString(R.string.login_text_rut_empty));
             focusView = rutText;
             cancel = true;
-        } else if (!isEmailValid(email)) {
+        } /*else if (!ValidationUtil.rutValidation(rut)) {
             rutText.setError(getResources().getString(R.string.login_rut_email_error));
             focusView = rutText;
             cancel = true;
-        }
+        }*/
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first
@@ -101,8 +105,11 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            authTask = new UserLoginTask(email, password, gcmToken);
-            authTask.execute((Void) null);
+
+            //TODO disable this direct access.
+            openMenuActivity();
+            //authTask = new UserLoginTask(email, password, gcmToken);
+            //authTask.execute((Void) null);
         }
 
     }
@@ -216,6 +223,11 @@ public class LoginActivity extends AppCompatActivity {
     public void onClickCreateUser(View v){
         Intent i=new Intent(this, CreateUserActivity.class);
         startActivity(i);
-
     }
+
+    public void openMenuActivity(){
+        Intent i=new Intent(this, MenuActivity.class);
+        startActivity(i);
+    }
+
 }
