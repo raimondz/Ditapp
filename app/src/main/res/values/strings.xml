@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Ditapp</string>
-    <string name="app_demo_name">Dita_Demo</string>
+    <string name="actionbar_name"> Ditapp</string>
     <string name="action_settings">Settings</string>
+    <string name="label_disclaimer">APD Fintech BCH 2015</string>
 
     <!-- MainActivity -->
     <string name="main_text_loading">Cargando</string>
@@ -36,5 +37,13 @@
     <string name="create_user_error_no_valid_email">Email no es valido</string>
     <string name="create_user_error_no_phone">Telefono es obligatorio</string>
     <string name="create_user_error_no_rut">Rut es obligatorio</string>
+
+    <!-- MenuActivity -->
+    <string name="menu_logout">Logout</string>
+    <string name="menu_tramite">Tramite</string>
+    <string name="menu_notification">Notificaciones</string>
+    <string name="menu_cancelar_tramite">Cancelar tramite</string>
+    <string name="menu_icon_tramite">{fa-bank}</string>
+    <string name="menu_icon_notification">{fa-bullhorn}</string>
 
 </resources>
