@@ -2,12 +2,14 @@ package cl.apd.ditapp.ui.solicitud;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -52,6 +54,14 @@ public class ConfirmarActivity extends AppCompatActivity {
 
         tramiteText.setText(datos.getString(Constants.SOLICITUD_TRAMITE));
         sucursalText.setText(datos.getString(Constants.SOLICITUD_SUCURSAL_DIRECCION));
+
+        int id_sucursal=datos.getInt(Constants.SOLICITUD_SUCURSAL);
+        if(id_sucursal==2)
+        {
+            ImageView preview= (ImageView) findViewById(R.id.iv_preview);
+            preview.setVisibility(View.VISIBLE);
+            preview.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.app_icon));
+        }
 
         horaButton.setOnClickListener(new View.OnClickListener() {
             @Override

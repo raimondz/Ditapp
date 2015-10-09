@@ -80,6 +80,13 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_preview"
+        android:visibility="gone"
+        />
+
     <Button
         style="@style/btn_bch"
         android:id="@+id/confirmarButton"

@@ -92,12 +92,6 @@
             android:screenOrientation="portrait"
             android:label="@string/actionbar_admin_notification"
             >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".ui.admin_notification.AdminNotificationResponse"
